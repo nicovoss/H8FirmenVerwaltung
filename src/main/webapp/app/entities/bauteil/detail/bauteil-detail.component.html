@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="bauteil">
+      <h2 data-cy="bauteilDetailsHeading"><span jhiTranslate="h8FirmenVerwaltungApp.bauteil.detail.title">Bauteil</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ bauteil.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.bauteil.name">Name</span></dt>
+        <dd>
+          <span>{{ bauteil.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.bauteil.bauteilgruppe">Bauteilgruppe</span></dt>
+        <dd>
+          <div *ngIf="bauteil.bauteilgruppe">
+            <a [routerLink]="['/bauteil-gruppe', bauteil.bauteilgruppe?.id, 'view']">{{ bauteil.bauteilgruppe?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/bauteil', bauteil.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

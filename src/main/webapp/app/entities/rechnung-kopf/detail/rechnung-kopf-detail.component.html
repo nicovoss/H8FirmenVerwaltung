@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="rechnungKopf">
+      <h2 data-cy="rechnungKopfDetailsHeading">
+        <span jhiTranslate="h8FirmenVerwaltungApp.rechnungKopf.detail.title">Rechnung Kopf</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ rechnungKopf.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.rechnungKopf.auftrag">Auftrag</span></dt>
+        <dd>
+          <div *ngIf="rechnungKopf.auftrag">
+            <a [routerLink]="['/auftrag', rechnungKopf.auftrag?.id, 'view']">{{ rechnungKopf.auftrag?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.rechnungKopf.bediner">Bediner</span></dt>
+        <dd>
+          <div *ngIf="rechnungKopf.bediner">
+            <a [routerLink]="['/bediener', rechnungKopf.bediner?.id, 'view']">{{ rechnungKopf.bediner?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.rechnungKopf.kunde">Kunde</span></dt>
+        <dd>
+          <div *ngIf="rechnungKopf.kunde">
+            <a [routerLink]="['/patner', rechnungKopf.kunde?.id, 'view']">{{ rechnungKopf.kunde?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.rechnungKopf.status">Status</span></dt>
+        <dd>
+          <div *ngIf="rechnungKopf.status">
+            <a [routerLink]="['/status', rechnungKopf.status?.id, 'view']">{{ rechnungKopf.status?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/rechnung-kopf', rechnungKopf.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

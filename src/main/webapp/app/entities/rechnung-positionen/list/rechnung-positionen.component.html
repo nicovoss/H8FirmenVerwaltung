@@ -1,0 +1,98 @@
+<div>
+  <h2 id="page-heading" data-cy="RechnungPositionenHeading">
+    <span jhiTranslate="h8FirmenVerwaltungApp.rechnungPositionen.home.title">Rechnung Positionens</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="h8FirmenVerwaltungApp.rechnungPositionen.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-rechnung-positionen"
+        [routerLink]="['/rechnung-positionen/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="h8FirmenVerwaltungApp.rechnungPositionen.home.createLabel"> Create a new Rechnung Positionen </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="rechnungPositionens?.length === 0">
+    <span jhiTranslate="h8FirmenVerwaltungApp.rechnungPositionen.home.notFound">No rechnungPositionens found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="rechnungPositionens && rechnungPositionens.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.rechnungPositionen.artikelName">Artikel Name</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.rechnungPositionen.artikelBeschreibung">Artikel Beschreibung</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.rechnungPositionen.artikelPreis">Artikel Preis</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.rechnungPositionen.menge">Menge</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.rechnungPositionen.rechnungskopf">Rechnungskopf</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.rechnungPositionen.artikel">Artikel</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rechnungPositionen of rechnungPositionens; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/rechnung-positionen', rechnungPositionen.id, 'view']">{{ rechnungPositionen.id }}</a>
+          </td>
+          <td>{{ rechnungPositionen.artikelName }}</td>
+          <td>{{ rechnungPositionen.artikelBeschreibung }}</td>
+          <td>{{ rechnungPositionen.artikelPreis }}</td>
+          <td>{{ rechnungPositionen.menge }}</td>
+          <td>
+            <div *ngIf="rechnungPositionen.rechnungskopf">
+              <a [routerLink]="['/rechnung-kopf', rechnungPositionen.rechnungskopf?.id, 'view']">{{
+                rechnungPositionen.rechnungskopf?.id
+              }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="rechnungPositionen.artikel">
+              <a [routerLink]="['/artikel', rechnungPositionen.artikel?.id, 'view']">{{ rechnungPositionen.artikel?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/rechnung-positionen', rechnungPositionen.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/rechnung-positionen', rechnungPositionen.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(rechnungPositionen)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

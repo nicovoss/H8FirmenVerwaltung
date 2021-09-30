@@ -1,0 +1,26 @@
+{
+  "h8FirmenVerwaltungApp": {
+    "bauteilGruppe": {
+      "home": {
+        "title": "Bauteil Gruppes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Bauteil Gruppe",
+        "createOrEditLabel": "Create or edit a Bauteil Gruppe",
+        "notFound": "No Bauteil Gruppes found"
+      },
+      "created": "A new Bauteil Gruppe is created with identifier {{ param }}",
+      "updated": "A Bauteil Gruppe is updated with identifier {{ param }}",
+      "deleted": "A Bauteil Gruppe is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bauteil Gruppe {{ id }}?"
+      },
+      "detail": {
+        "title": "Bauteil Gruppe"
+      },
+      "id": "ID",
+      "name": "Name",
+      "bauteil": "Bauteil",
+      "artikelTyp": "Artikel Typ"
+    }
+  }
+}

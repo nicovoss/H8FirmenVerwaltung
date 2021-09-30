@@ -1,0 +1,28 @@
+{
+  "h8FirmenVerwaltungApp": {
+    "artikel": {
+      "home": {
+        "title": "Artikels",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Artikel erstellen",
+        "createOrEditLabel": "Artikel erstellen oder bearbeiten",
+        "notFound": "Keine Artikels gefunden"
+      },
+      "created": "Artikel erstellt mit ID {{ param }}",
+      "updated": "Artikel aktualisiert mit ID {{ param }}",
+      "deleted": "Artikel gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Artikel {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Artikel"
+      },
+      "id": "ID",
+      "name": "Name",
+      "auftragPositionen": "Auftrag Positionen",
+      "rechnungPositionen": "Rechnung Positionen",
+      "artikelZuBauteilmenge": "Artikel Zu Bauteilmenge",
+      "artikelTyp": "Artikel Typ"
+    }
+  }
+}

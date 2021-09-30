@@ -15,7 +15,32 @@
     <property name="datetimeType" value="datetime" dbms="oracle, mssql, postgresql, h2"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210930192853_added_entity_RechnungKopf.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210930192854_added_entity_RechnungPositionen.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210930192855_added_entity_Artikel.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210930192856_added_entity_ArtikelTyp.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210930192857_added_entity_Status.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210930192858_added_entity_Auftrag.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210930192859_added_entity_AuftragPositionen.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210930192900_added_entity_Patner.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210930192901_added_entity_Bediener.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210930192902_added_entity_Organistation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210930192903_added_entity_Rohstoff.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210930192904_added_entity_Bauteil.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210930192905_added_entity_BauteilGruppe.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210930192906_added_entity_BauteileZuRohstoffe.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210930192907_added_entity_ArtikelZuBauteilmenge.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20210930192853_added_entity_constraints_RechnungKopf.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210930192854_added_entity_constraints_RechnungPositionen.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210930192855_added_entity_constraints_Artikel.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210930192858_added_entity_constraints_Auftrag.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210930192859_added_entity_constraints_AuftragPositionen.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210930192900_added_entity_constraints_Patner.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210930192904_added_entity_constraints_Bauteil.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210930192905_added_entity_constraints_BauteilGruppe.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210930192906_added_entity_constraints_BauteileZuRohstoffe.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210930192907_added_entity_constraints_ArtikelZuBauteilmenge.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

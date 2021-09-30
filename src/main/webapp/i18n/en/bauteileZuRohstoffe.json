@@ -1,0 +1,26 @@
+{
+  "h8FirmenVerwaltungApp": {
+    "bauteileZuRohstoffe": {
+      "home": {
+        "title": "Bauteile Zu Rohstoffes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Bauteile Zu Rohstoffe",
+        "createOrEditLabel": "Create or edit a Bauteile Zu Rohstoffe",
+        "notFound": "No Bauteile Zu Rohstoffes found"
+      },
+      "created": "A new Bauteile Zu Rohstoffe is created with identifier {{ param }}",
+      "updated": "A Bauteile Zu Rohstoffe is updated with identifier {{ param }}",
+      "deleted": "A Bauteile Zu Rohstoffe is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bauteile Zu Rohstoffe {{ id }}?"
+      },
+      "detail": {
+        "title": "Bauteile Zu Rohstoffe"
+      },
+      "id": "ID",
+      "menge": "Menge",
+      "bauteil": "Bauteil",
+      "rohstoff": "Rohstoff"
+    }
+  }
+}

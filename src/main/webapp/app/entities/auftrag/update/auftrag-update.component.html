@@ -1,0 +1,145 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-auftrag-heading" data-cy="AuftragCreateUpdateHeading" jhiTranslate="h8FirmenVerwaltungApp.auftrag.home.createOrEditLabel">
+        Create or edit a Auftrag
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="h8FirmenVerwaltungApp.auftrag.erfasstAm" for="field_erfasstAm">Erfasst Am</label>
+          <div class="d-flex">
+            <input
+              id="field_erfasstAm"
+              data-cy="erfasstAm"
+              type="datetime-local"
+              class="form-control"
+              name="erfasstAm"
+              formControlName="erfasstAm"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="h8FirmenVerwaltungApp.auftrag.faelligAm" for="field_faelligAm">Faellig Am</label>
+          <div class="d-flex">
+            <input
+              id="field_faelligAm"
+              data-cy="faelligAm"
+              type="datetime-local"
+              class="form-control"
+              name="faelligAm"
+              formControlName="faelligAm"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="h8FirmenVerwaltungApp.auftrag.bezahl" for="field_bezahl">Bezahl</label>
+          <input type="checkbox" class="form-check" name="bezahl" id="field_bezahl" data-cy="bezahl" formControlName="bezahl" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="h8FirmenVerwaltungApp.auftrag.bezahltAm" for="field_bezahltAm">Bezahlt Am</label>
+          <div class="d-flex">
+            <input
+              id="field_bezahltAm"
+              data-cy="bezahltAm"
+              type="datetime-local"
+              class="form-control"
+              name="bezahltAm"
+              formControlName="bezahltAm"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="h8FirmenVerwaltungApp.auftrag.abgeschlossenAm" for="field_abgeschlossenAm"
+            >Abgeschlossen Am</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_abgeschlossenAm"
+              data-cy="abgeschlossenAm"
+              type="datetime-local"
+              class="form-control"
+              name="abgeschlossenAm"
+              formControlName="abgeschlossenAm"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="h8FirmenVerwaltungApp.auftrag.kommentar" for="field_kommentar">Kommentar</label>
+          <input type="text" class="form-control" name="kommentar" id="field_kommentar" data-cy="kommentar" formControlName="kommentar" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="h8FirmenVerwaltungApp.auftrag.status" for="field_status">Status</label>
+          <select class="form-control" id="field_status" data-cy="status" name="status" formControlName="status">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="statusOption.id === editForm.get('status')!.value?.id ? editForm.get('status')!.value : statusOption"
+              *ngFor="let statusOption of statusesSharedCollection; trackBy: trackStatusById"
+            >
+              {{ statusOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="h8FirmenVerwaltungApp.auftrag.kunde" for="field_kunde">Kunde</label>
+          <select class="form-control" id="field_kunde" data-cy="kunde" name="kunde" formControlName="kunde">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="patnerOption.id === editForm.get('kunde')!.value?.id ? editForm.get('kunde')!.value : patnerOption"
+              *ngFor="let patnerOption of patnersSharedCollection; trackBy: trackPatnerById"
+            >
+              {{ patnerOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="h8FirmenVerwaltungApp.auftrag.bediener" for="field_bediener">Bediener</label>
+          <select class="form-control" id="field_bediener" data-cy="bediener" name="bediener" formControlName="bediener">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="bedienerOption.id === editForm.get('bediener')!.value?.id ? editForm.get('bediener')!.value : bedienerOption"
+              *ngFor="let bedienerOption of bedienersSharedCollection; trackBy: trackBedienerById"
+            >
+              {{ bedienerOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

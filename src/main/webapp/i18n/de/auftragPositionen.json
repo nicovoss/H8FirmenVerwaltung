@@ -1,0 +1,26 @@
+{
+  "h8FirmenVerwaltungApp": {
+    "auftragPositionen": {
+      "home": {
+        "title": "Auftrag Positionens",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Auftrag Positionen erstellen",
+        "createOrEditLabel": "Auftrag Positionen erstellen oder bearbeiten",
+        "notFound": "Keine Auftrag Positionens gefunden"
+      },
+      "created": "Auftrag Positionen erstellt mit ID {{ param }}",
+      "updated": "Auftrag Positionen aktualisiert mit ID {{ param }}",
+      "deleted": "Auftrag Positionen gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Auftrag Positionen {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Auftrag Positionen"
+      },
+      "id": "ID",
+      "menge": "Menge",
+      "auftrag": "Auftrag",
+      "artikel": "Artikel"
+    }
+  }
+}

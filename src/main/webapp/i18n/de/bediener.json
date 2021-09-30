@@ -1,0 +1,27 @@
+{
+  "h8FirmenVerwaltungApp": {
+    "bediener": {
+      "home": {
+        "title": "Bedieners",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Bediener erstellen",
+        "createOrEditLabel": "Bediener erstellen oder bearbeiten",
+        "notFound": "Keine Bedieners gefunden"
+      },
+      "created": "Bediener erstellt mit ID {{ param }}",
+      "updated": "Bediener aktualisiert mit ID {{ param }}",
+      "deleted": "Bediener gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Bediener {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Bediener"
+      },
+      "id": "ID",
+      "vname": "Vname",
+      "name": "Name",
+      "rechnungKopf": "Rechnung Kopf",
+      "auftrag": "Auftrag"
+    }
+  }
+}

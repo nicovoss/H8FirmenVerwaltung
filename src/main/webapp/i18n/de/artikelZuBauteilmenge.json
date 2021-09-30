@@ -1,0 +1,26 @@
+{
+  "h8FirmenVerwaltungApp": {
+    "artikelZuBauteilmenge": {
+      "home": {
+        "title": "Artikel Zu Bauteilmenges",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Artikel Zu Bauteilmenge erstellen",
+        "createOrEditLabel": "Artikel Zu Bauteilmenge erstellen oder bearbeiten",
+        "notFound": "Keine Artikel Zu Bauteilmenges gefunden"
+      },
+      "created": "Artikel Zu Bauteilmenge erstellt mit ID {{ param }}",
+      "updated": "Artikel Zu Bauteilmenge aktualisiert mit ID {{ param }}",
+      "deleted": "Artikel Zu Bauteilmenge gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Artikel Zu Bauteilmenge {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Artikel Zu Bauteilmenge"
+      },
+      "id": "ID",
+      "menge": "Menge",
+      "bauteil": "Bauteil",
+      "artikel": "Artikel"
+    }
+  }
+}

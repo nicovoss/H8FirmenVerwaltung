@@ -1,0 +1,26 @@
+{
+  "h8FirmenVerwaltungApp": {
+    "organistation": {
+      "home": {
+        "title": "Organistations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Organistation",
+        "createOrEditLabel": "Create or edit a Organistation",
+        "notFound": "No Organistations found"
+      },
+      "created": "A new Organistation is created with identifier {{ param }}",
+      "updated": "A Organistation is updated with identifier {{ param }}",
+      "deleted": "A Organistation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Organistation {{ id }}?"
+      },
+      "detail": {
+        "title": "Organistation"
+      },
+      "id": "ID",
+      "orgaId": "Orga Id",
+      "name": "Name",
+      "patner": "Patner"
+    }
+  }
+}

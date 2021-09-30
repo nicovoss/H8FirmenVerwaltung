@@ -1,0 +1,29 @@
+{
+  "h8FirmenVerwaltungApp": {
+    "rechnungPositionen": {
+      "home": {
+        "title": "Rechnung Positionens",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Rechnung Positionen",
+        "createOrEditLabel": "Create or edit a Rechnung Positionen",
+        "notFound": "No Rechnung Positionens found"
+      },
+      "created": "A new Rechnung Positionen is created with identifier {{ param }}",
+      "updated": "A Rechnung Positionen is updated with identifier {{ param }}",
+      "deleted": "A Rechnung Positionen is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Rechnung Positionen {{ id }}?"
+      },
+      "detail": {
+        "title": "Rechnung Positionen"
+      },
+      "id": "ID",
+      "artikelName": "Artikel Name",
+      "artikelBeschreibung": "Artikel Beschreibung",
+      "artikelPreis": "Artikel Preis",
+      "menge": "Menge",
+      "rechnungskopf": "Rechnungskopf",
+      "artikel": "Artikel"
+    }
+  }
+}

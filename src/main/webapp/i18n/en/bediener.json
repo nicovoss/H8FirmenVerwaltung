@@ -1,0 +1,27 @@
+{
+  "h8FirmenVerwaltungApp": {
+    "bediener": {
+      "home": {
+        "title": "Bedieners",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Bediener",
+        "createOrEditLabel": "Create or edit a Bediener",
+        "notFound": "No Bedieners found"
+      },
+      "created": "A new Bediener is created with identifier {{ param }}",
+      "updated": "A Bediener is updated with identifier {{ param }}",
+      "deleted": "A Bediener is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bediener {{ id }}?"
+      },
+      "detail": {
+        "title": "Bediener"
+      },
+      "id": "ID",
+      "vname": "Vname",
+      "name": "Name",
+      "rechnungKopf": "Rechnung Kopf",
+      "auftrag": "Auftrag"
+    }
+  }
+}

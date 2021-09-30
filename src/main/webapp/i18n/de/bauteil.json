@@ -1,0 +1,27 @@
+{
+  "h8FirmenVerwaltungApp": {
+    "bauteil": {
+      "home": {
+        "title": "Bauteils",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Bauteil erstellen",
+        "createOrEditLabel": "Bauteil erstellen oder bearbeiten",
+        "notFound": "Keine Bauteils gefunden"
+      },
+      "created": "Bauteil erstellt mit ID {{ param }}",
+      "updated": "Bauteil aktualisiert mit ID {{ param }}",
+      "deleted": "Bauteil gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Bauteil {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Bauteil"
+      },
+      "id": "ID",
+      "name": "Name",
+      "bauteileZuRohstoffe": "Bauteile Zu Rohstoffe",
+      "artikelZuBauteilmenge": "Artikel Zu Bauteilmenge",
+      "bauteilgruppe": "Bauteilgruppe"
+    }
+  }
+}

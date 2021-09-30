@@ -1,0 +1,28 @@
+{
+  "h8FirmenVerwaltungApp": {
+    "rechnungKopf": {
+      "home": {
+        "title": "Rechnung Kopfs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Rechnung Kopf",
+        "createOrEditLabel": "Create or edit a Rechnung Kopf",
+        "notFound": "No Rechnung Kopfs found"
+      },
+      "created": "A new Rechnung Kopf is created with identifier {{ param }}",
+      "updated": "A Rechnung Kopf is updated with identifier {{ param }}",
+      "deleted": "A Rechnung Kopf is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Rechnung Kopf {{ id }}?"
+      },
+      "detail": {
+        "title": "Rechnung Kopf"
+      },
+      "id": "ID",
+      "rechnungPositionen": "Rechnung Positionen",
+      "auftrag": "Auftrag",
+      "bediner": "Bediner",
+      "kunde": "Kunde",
+      "status": "Status"
+    }
+  }
+}

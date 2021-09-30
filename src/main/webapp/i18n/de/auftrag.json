@@ -1,0 +1,34 @@
+{
+  "h8FirmenVerwaltungApp": {
+    "auftrag": {
+      "home": {
+        "title": "Auftrags",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Auftrag erstellen",
+        "createOrEditLabel": "Auftrag erstellen oder bearbeiten",
+        "notFound": "Keine Auftrags gefunden"
+      },
+      "created": "Auftrag erstellt mit ID {{ param }}",
+      "updated": "Auftrag aktualisiert mit ID {{ param }}",
+      "deleted": "Auftrag gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Auftrag {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Auftrag"
+      },
+      "id": "ID",
+      "erfasstAm": "Erfasst Am",
+      "faelligAm": "Faellig Am",
+      "bezahl": "Bezahl",
+      "bezahltAm": "Bezahlt Am",
+      "abgeschlossenAm": "Abgeschlossen Am",
+      "kommentar": "Kommentar",
+      "rechnungKopf": "Rechnung Kopf",
+      "auftragPositionen": "Auftrag Positionen",
+      "status": "Status",
+      "kunde": "Kunde",
+      "bediener": "Bediener"
+    }
+  }
+}

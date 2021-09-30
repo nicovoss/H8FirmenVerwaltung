@@ -1,0 +1,90 @@
+<div>
+  <h2 id="page-heading" data-cy="ArtikelZuBauteilmengeHeading">
+    <span jhiTranslate="h8FirmenVerwaltungApp.artikelZuBauteilmenge.home.title">Artikel Zu Bauteilmenges</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="h8FirmenVerwaltungApp.artikelZuBauteilmenge.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-artikel-zu-bauteilmenge"
+        [routerLink]="['/artikel-zu-bauteilmenge/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="h8FirmenVerwaltungApp.artikelZuBauteilmenge.home.createLabel"> Create a new Artikel Zu Bauteilmenge </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="artikelZuBauteilmenges?.length === 0">
+    <span jhiTranslate="h8FirmenVerwaltungApp.artikelZuBauteilmenge.home.notFound">No artikelZuBauteilmenges found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="artikelZuBauteilmenges && artikelZuBauteilmenges.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.artikelZuBauteilmenge.menge">Menge</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.artikelZuBauteilmenge.bauteil">Bauteil</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.artikelZuBauteilmenge.artikel">Artikel</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let artikelZuBauteilmenge of artikelZuBauteilmenges; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/artikel-zu-bauteilmenge', artikelZuBauteilmenge.id, 'view']">{{ artikelZuBauteilmenge.id }}</a>
+          </td>
+          <td>{{ artikelZuBauteilmenge.menge }}</td>
+          <td>
+            <div *ngIf="artikelZuBauteilmenge.bauteil">
+              <a [routerLink]="['/bauteil', artikelZuBauteilmenge.bauteil?.id, 'view']">{{ artikelZuBauteilmenge.bauteil?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="artikelZuBauteilmenge.artikel">
+              <a [routerLink]="['/artikel', artikelZuBauteilmenge.artikel?.id, 'view']">{{ artikelZuBauteilmenge.artikel?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/artikel-zu-bauteilmenge', artikelZuBauteilmenge.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/artikel-zu-bauteilmenge', artikelZuBauteilmenge.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(artikelZuBauteilmenge)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

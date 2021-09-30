@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="bauteileZuRohstoffe">
+      <h2 data-cy="bauteileZuRohstoffeDetailsHeading">
+        <span jhiTranslate="h8FirmenVerwaltungApp.bauteileZuRohstoffe.detail.title">Bauteile Zu Rohstoffe</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ bauteileZuRohstoffe.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.bauteileZuRohstoffe.menge">Menge</span></dt>
+        <dd>
+          <span>{{ bauteileZuRohstoffe.menge }}</span>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.bauteileZuRohstoffe.bauteil">Bauteil</span></dt>
+        <dd>
+          <div *ngIf="bauteileZuRohstoffe.bauteil">
+            <a [routerLink]="['/bauteil', bauteileZuRohstoffe.bauteil?.id, 'view']">{{ bauteileZuRohstoffe.bauteil?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.bauteileZuRohstoffe.rohstoff">Rohstoff</span></dt>
+        <dd>
+          <div *ngIf="bauteileZuRohstoffe.rohstoff">
+            <a [routerLink]="['/rohstoff', bauteileZuRohstoffe.rohstoff?.id, 'view']">{{ bauteileZuRohstoffe.rohstoff?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/bauteile-zu-rohstoffe', bauteileZuRohstoffe.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

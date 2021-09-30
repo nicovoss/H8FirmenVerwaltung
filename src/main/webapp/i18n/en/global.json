@@ -7,6 +7,21 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "rechnungKopf": "Rechnung Kopf",
+        "rechnungPositionen": "Rechnung Positionen",
+        "artikel": "Artikel",
+        "artikelTyp": "Artikel Typ",
+        "status": "Status",
+        "auftrag": "Auftrag",
+        "auftragPositionen": "Auftrag Positionen",
+        "patner": "Patner",
+        "bediener": "Bediener",
+        "organistation": "Organistation",
+        "rohstoff": "Rohstoff",
+        "bauteil": "Bauteil",
+        "bauteilGruppe": "Bauteil Gruppe",
+        "bauteileZuRohstoffe": "Bauteile Zu Rohstoffe",
+        "artikelZuBauteilmenge": "Artikel Zu Bauteilmenge",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

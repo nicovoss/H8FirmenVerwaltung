@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="auftrag">
+      <h2 data-cy="auftragDetailsHeading"><span jhiTranslate="h8FirmenVerwaltungApp.auftrag.detail.title">Auftrag</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ auftrag.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.auftrag.erfasstAm">Erfasst Am</span></dt>
+        <dd>
+          <span>{{ auftrag.erfasstAm | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.auftrag.faelligAm">Faellig Am</span></dt>
+        <dd>
+          <span>{{ auftrag.faelligAm | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.auftrag.bezahl">Bezahl</span></dt>
+        <dd>
+          <span>{{ auftrag.bezahl }}</span>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.auftrag.bezahltAm">Bezahlt Am</span></dt>
+        <dd>
+          <span>{{ auftrag.bezahltAm | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.auftrag.abgeschlossenAm">Abgeschlossen Am</span></dt>
+        <dd>
+          <span>{{ auftrag.abgeschlossenAm | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.auftrag.kommentar">Kommentar</span></dt>
+        <dd>
+          <span>{{ auftrag.kommentar }}</span>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.auftrag.status">Status</span></dt>
+        <dd>
+          <div *ngIf="auftrag.status">
+            <a [routerLink]="['/status', auftrag.status?.id, 'view']">{{ auftrag.status?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.auftrag.kunde">Kunde</span></dt>
+        <dd>
+          <div *ngIf="auftrag.kunde">
+            <a [routerLink]="['/patner', auftrag.kunde?.id, 'view']">{{ auftrag.kunde?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.auftrag.bediener">Bediener</span></dt>
+        <dd>
+          <div *ngIf="auftrag.bediener">
+            <a [routerLink]="['/bediener', auftrag.bediener?.id, 'view']">{{ auftrag.bediener?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/auftrag', auftrag.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

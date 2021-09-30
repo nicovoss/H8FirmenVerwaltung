@@ -1,0 +1,100 @@
+<div>
+  <h2 id="page-heading" data-cy="RechnungKopfHeading">
+    <span jhiTranslate="h8FirmenVerwaltungApp.rechnungKopf.home.title">Rechnung Kopfs</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="h8FirmenVerwaltungApp.rechnungKopf.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-rechnung-kopf"
+        [routerLink]="['/rechnung-kopf/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="h8FirmenVerwaltungApp.rechnungKopf.home.createLabel"> Create a new Rechnung Kopf </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="rechnungKopfs?.length === 0">
+    <span jhiTranslate="h8FirmenVerwaltungApp.rechnungKopf.home.notFound">No rechnungKopfs found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="rechnungKopfs && rechnungKopfs.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.rechnungKopf.auftrag">Auftrag</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.rechnungKopf.bediner">Bediner</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.rechnungKopf.kunde">Kunde</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.rechnungKopf.status">Status</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rechnungKopf of rechnungKopfs; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/rechnung-kopf', rechnungKopf.id, 'view']">{{ rechnungKopf.id }}</a>
+          </td>
+          <td>
+            <div *ngIf="rechnungKopf.auftrag">
+              <a [routerLink]="['/auftrag', rechnungKopf.auftrag?.id, 'view']">{{ rechnungKopf.auftrag?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="rechnungKopf.bediner">
+              <a [routerLink]="['/bediener', rechnungKopf.bediner?.id, 'view']">{{ rechnungKopf.bediner?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="rechnungKopf.kunde">
+              <a [routerLink]="['/patner', rechnungKopf.kunde?.id, 'view']">{{ rechnungKopf.kunde?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="rechnungKopf.status">
+              <a [routerLink]="['/status', rechnungKopf.status?.id, 'view']">{{ rechnungKopf.status?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/rechnung-kopf', rechnungKopf.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/rechnung-kopf', rechnungKopf.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(rechnungKopf)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

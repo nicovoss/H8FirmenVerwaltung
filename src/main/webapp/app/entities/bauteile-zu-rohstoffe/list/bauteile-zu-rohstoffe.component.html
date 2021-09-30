@@ -1,0 +1,90 @@
+<div>
+  <h2 id="page-heading" data-cy="BauteileZuRohstoffeHeading">
+    <span jhiTranslate="h8FirmenVerwaltungApp.bauteileZuRohstoffe.home.title">Bauteile Zu Rohstoffes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="h8FirmenVerwaltungApp.bauteileZuRohstoffe.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-bauteile-zu-rohstoffe"
+        [routerLink]="['/bauteile-zu-rohstoffe/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="h8FirmenVerwaltungApp.bauteileZuRohstoffe.home.createLabel"> Create a new Bauteile Zu Rohstoffe </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="bauteileZuRohstoffes?.length === 0">
+    <span jhiTranslate="h8FirmenVerwaltungApp.bauteileZuRohstoffe.home.notFound">No bauteileZuRohstoffes found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="bauteileZuRohstoffes && bauteileZuRohstoffes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.bauteileZuRohstoffe.menge">Menge</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.bauteileZuRohstoffe.bauteil">Bauteil</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.bauteileZuRohstoffe.rohstoff">Rohstoff</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bauteileZuRohstoffe of bauteileZuRohstoffes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/bauteile-zu-rohstoffe', bauteileZuRohstoffe.id, 'view']">{{ bauteileZuRohstoffe.id }}</a>
+          </td>
+          <td>{{ bauteileZuRohstoffe.menge }}</td>
+          <td>
+            <div *ngIf="bauteileZuRohstoffe.bauteil">
+              <a [routerLink]="['/bauteil', bauteileZuRohstoffe.bauteil?.id, 'view']">{{ bauteileZuRohstoffe.bauteil?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="bauteileZuRohstoffe.rohstoff">
+              <a [routerLink]="['/rohstoff', bauteileZuRohstoffe.rohstoff?.id, 'view']">{{ bauteileZuRohstoffe.rohstoff?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/bauteile-zu-rohstoffe', bauteileZuRohstoffe.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/bauteile-zu-rohstoffe', bauteileZuRohstoffe.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(bauteileZuRohstoffe)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

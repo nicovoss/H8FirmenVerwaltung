@@ -1,0 +1,26 @@
+{
+  "h8FirmenVerwaltungApp": {
+    "auftragPositionen": {
+      "home": {
+        "title": "Auftrag Positionens",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Auftrag Positionen",
+        "createOrEditLabel": "Create or edit a Auftrag Positionen",
+        "notFound": "No Auftrag Positionens found"
+      },
+      "created": "A new Auftrag Positionen is created with identifier {{ param }}",
+      "updated": "A Auftrag Positionen is updated with identifier {{ param }}",
+      "deleted": "A Auftrag Positionen is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Auftrag Positionen {{ id }}?"
+      },
+      "detail": {
+        "title": "Auftrag Positionen"
+      },
+      "id": "ID",
+      "menge": "Menge",
+      "auftrag": "Auftrag",
+      "artikel": "Artikel"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
+    <!--
+        Added the constraints for entity RechnungPositionen.
+    -->
+    <changeSet id="20210930192854-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="rechnungskopf_id"
+                                 baseTableName="rechnung_positionen"
+                                 constraintName="fk_rechnung_positionen__rechnungskopf_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="rechnung_kopf"/>
+
+        <addForeignKeyConstraint baseColumnNames="artikel_id"
+                                 baseTableName="rechnung_positionen"
+                                 constraintName="fk_rechnung_positionen__artikel_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="artikel"/>
+    </changeSet>
+</databaseChangeLog>

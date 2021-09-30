@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-bauteile-zu-rohstoffe-heading"
+        data-cy="BauteileZuRohstoffeCreateUpdateHeading"
+        jhiTranslate="h8FirmenVerwaltungApp.bauteileZuRohstoffe.home.createOrEditLabel"
+      >
+        Create or edit a Bauteile Zu Rohstoffe
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="h8FirmenVerwaltungApp.bauteileZuRohstoffe.menge" for="field_menge">Menge</label>
+          <input type="number" class="form-control" name="menge" id="field_menge" data-cy="menge" formControlName="menge" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="h8FirmenVerwaltungApp.bauteileZuRohstoffe.bauteil" for="field_bauteil"
+            >Bauteil</label
+          >
+          <select class="form-control" id="field_bauteil" data-cy="bauteil" name="bauteil" formControlName="bauteil">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="bauteilOption.id === editForm.get('bauteil')!.value?.id ? editForm.get('bauteil')!.value : bauteilOption"
+              *ngFor="let bauteilOption of bauteilsSharedCollection; trackBy: trackBauteilById"
+            >
+              {{ bauteilOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="h8FirmenVerwaltungApp.bauteileZuRohstoffe.rohstoff" for="field_rohstoff"
+            >Rohstoff</label
+          >
+          <select class="form-control" id="field_rohstoff" data-cy="rohstoff" name="rohstoff" formControlName="rohstoff">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="rohstoffOption.id === editForm.get('rohstoff')!.value?.id ? editForm.get('rohstoff')!.value : rohstoffOption"
+              *ngFor="let rohstoffOption of rohstoffsSharedCollection; trackBy: trackRohstoffById"
+            >
+              {{ rohstoffOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

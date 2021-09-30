@@ -1,0 +1,27 @@
+{
+  "h8FirmenVerwaltungApp": {
+    "bauteil": {
+      "home": {
+        "title": "Bauteils",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Bauteil",
+        "createOrEditLabel": "Create or edit a Bauteil",
+        "notFound": "No Bauteils found"
+      },
+      "created": "A new Bauteil is created with identifier {{ param }}",
+      "updated": "A Bauteil is updated with identifier {{ param }}",
+      "deleted": "A Bauteil is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bauteil {{ id }}?"
+      },
+      "detail": {
+        "title": "Bauteil"
+      },
+      "id": "ID",
+      "name": "Name",
+      "bauteileZuRohstoffe": "Bauteile Zu Rohstoffe",
+      "artikelZuBauteilmenge": "Artikel Zu Bauteilmenge",
+      "bauteilgruppe": "Bauteilgruppe"
+    }
+  }
+}

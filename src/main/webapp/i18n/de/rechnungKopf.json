@@ -1,0 +1,28 @@
+{
+  "h8FirmenVerwaltungApp": {
+    "rechnungKopf": {
+      "home": {
+        "title": "Rechnung Kopfs",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Rechnung Kopf erstellen",
+        "createOrEditLabel": "Rechnung Kopf erstellen oder bearbeiten",
+        "notFound": "Keine Rechnung Kopfs gefunden"
+      },
+      "created": "Rechnung Kopf erstellt mit ID {{ param }}",
+      "updated": "Rechnung Kopf aktualisiert mit ID {{ param }}",
+      "deleted": "Rechnung Kopf gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Rechnung Kopf {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Rechnung Kopf"
+      },
+      "id": "ID",
+      "rechnungPositionen": "Rechnung Positionen",
+      "auftrag": "Auftrag",
+      "bediner": "Bediner",
+      "kunde": "Kunde",
+      "status": "Status"
+    }
+  }
+}

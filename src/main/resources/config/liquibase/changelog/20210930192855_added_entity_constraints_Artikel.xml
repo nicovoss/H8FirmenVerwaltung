@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
+    <!--
+        Added the constraints for entity Artikel.
+    -->
+    <changeSet id="20210930192855-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="artikel_typ_id"
+                                 baseTableName="artikel"
+                                 constraintName="fk_artikel__artikel_typ_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="artikel_typ"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,84 @@
+<div>
+  <h2 id="page-heading" data-cy="BauteilHeading">
+    <span jhiTranslate="h8FirmenVerwaltungApp.bauteil.home.title">Bauteils</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="h8FirmenVerwaltungApp.bauteil.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-bauteil"
+        [routerLink]="['/bauteil/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="h8FirmenVerwaltungApp.bauteil.home.createLabel"> Create a new Bauteil </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="bauteils?.length === 0">
+    <span jhiTranslate="h8FirmenVerwaltungApp.bauteil.home.notFound">No bauteils found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="bauteils && bauteils.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.bauteil.name">Name</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.bauteil.bauteilgruppe">Bauteilgruppe</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bauteil of bauteils; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/bauteil', bauteil.id, 'view']">{{ bauteil.id }}</a>
+          </td>
+          <td>{{ bauteil.name }}</td>
+          <td>
+            <div *ngIf="bauteil.bauteilgruppe">
+              <a [routerLink]="['/bauteil-gruppe', bauteil.bauteilgruppe?.id, 'view']">{{ bauteil.bauteilgruppe?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/bauteil', bauteil.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/bauteil', bauteil.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(bauteil)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

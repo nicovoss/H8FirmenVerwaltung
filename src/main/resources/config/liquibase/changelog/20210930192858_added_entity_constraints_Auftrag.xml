@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
+    <!--
+        Added the constraints for entity Auftrag.
+    -->
+    <changeSet id="20210930192858-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="status_id"
+                                 baseTableName="auftrag"
+                                 constraintName="fk_auftrag__status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="status"/>
+
+        <addForeignKeyConstraint baseColumnNames="kunde_id"
+                                 baseTableName="auftrag"
+                                 constraintName="fk_auftrag__kunde_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="patner"/>
+
+        <addForeignKeyConstraint baseColumnNames="bediener_id"
+                                 baseTableName="auftrag"
+                                 constraintName="fk_auftrag__bediener_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bediener"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,136 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-rechnung-positionen-heading"
+        data-cy="RechnungPositionenCreateUpdateHeading"
+        jhiTranslate="h8FirmenVerwaltungApp.rechnungPositionen.home.createOrEditLabel"
+      >
+        Create or edit a Rechnung Positionen
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="h8FirmenVerwaltungApp.rechnungPositionen.artikelName" for="field_artikelName"
+            >Artikel Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="artikelName"
+            id="field_artikelName"
+            data-cy="artikelName"
+            formControlName="artikelName"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="h8FirmenVerwaltungApp.rechnungPositionen.artikelBeschreibung"
+            for="field_artikelBeschreibung"
+            >Artikel Beschreibung</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="artikelBeschreibung"
+            id="field_artikelBeschreibung"
+            data-cy="artikelBeschreibung"
+            formControlName="artikelBeschreibung"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="h8FirmenVerwaltungApp.rechnungPositionen.artikelPreis" for="field_artikelPreis"
+            >Artikel Preis</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="artikelPreis"
+            id="field_artikelPreis"
+            data-cy="artikelPreis"
+            formControlName="artikelPreis"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="h8FirmenVerwaltungApp.rechnungPositionen.menge" for="field_menge">Menge</label>
+          <input type="number" class="form-control" name="menge" id="field_menge" data-cy="menge" formControlName="menge" />
+          <div *ngIf="editForm.get('menge')!.invalid && (editForm.get('menge')!.dirty || editForm.get('menge')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('menge')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('menge')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="h8FirmenVerwaltungApp.rechnungPositionen.rechnungskopf" for="field_rechnungskopf"
+            >Rechnungskopf</label
+          >
+          <select
+            class="form-control"
+            id="field_rechnungskopf"
+            data-cy="rechnungskopf"
+            name="rechnungskopf"
+            formControlName="rechnungskopf"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                rechnungKopfOption.id === editForm.get('rechnungskopf')!.value?.id
+                  ? editForm.get('rechnungskopf')!.value
+                  : rechnungKopfOption
+              "
+              *ngFor="let rechnungKopfOption of rechnungKopfsSharedCollection; trackBy: trackRechnungKopfById"
+            >
+              {{ rechnungKopfOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="h8FirmenVerwaltungApp.rechnungPositionen.artikel" for="field_artikel"
+            >Artikel</label
+          >
+          <select class="form-control" id="field_artikel" data-cy="artikel" name="artikel" formControlName="artikel">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="artikelOption.id === editForm.get('artikel')!.value?.id ? editForm.get('artikel')!.value : artikelOption"
+              *ngFor="let artikelOption of artikelsSharedCollection; trackBy: trackArtikelById"
+            >
+              {{ artikelOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

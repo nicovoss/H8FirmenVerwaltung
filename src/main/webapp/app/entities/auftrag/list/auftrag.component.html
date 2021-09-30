@@ -1,0 +1,106 @@
+<div>
+  <h2 id="page-heading" data-cy="AuftragHeading">
+    <span jhiTranslate="h8FirmenVerwaltungApp.auftrag.home.title">Auftrags</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="h8FirmenVerwaltungApp.auftrag.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-auftrag"
+        [routerLink]="['/auftrag/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="h8FirmenVerwaltungApp.auftrag.home.createLabel"> Create a new Auftrag </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="auftrags?.length === 0">
+    <span jhiTranslate="h8FirmenVerwaltungApp.auftrag.home.notFound">No auftrags found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="auftrags && auftrags.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.auftrag.erfasstAm">Erfasst Am</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.auftrag.faelligAm">Faellig Am</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.auftrag.bezahl">Bezahl</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.auftrag.bezahltAm">Bezahlt Am</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.auftrag.abgeschlossenAm">Abgeschlossen Am</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.auftrag.kommentar">Kommentar</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.auftrag.status">Status</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.auftrag.kunde">Kunde</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.auftrag.bediener">Bediener</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let auftrag of auftrags; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/auftrag', auftrag.id, 'view']">{{ auftrag.id }}</a>
+          </td>
+          <td>{{ auftrag.erfasstAm | formatMediumDatetime }}</td>
+          <td>{{ auftrag.faelligAm | formatMediumDatetime }}</td>
+          <td>{{ auftrag.bezahl }}</td>
+          <td>{{ auftrag.bezahltAm | formatMediumDatetime }}</td>
+          <td>{{ auftrag.abgeschlossenAm | formatMediumDatetime }}</td>
+          <td>{{ auftrag.kommentar }}</td>
+          <td>
+            <div *ngIf="auftrag.status">
+              <a [routerLink]="['/status', auftrag.status?.id, 'view']">{{ auftrag.status?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="auftrag.kunde">
+              <a [routerLink]="['/patner', auftrag.kunde?.id, 'view']">{{ auftrag.kunde?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="auftrag.bediener">
+              <a [routerLink]="['/bediener', auftrag.bediener?.id, 'view']">{{ auftrag.bediener?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/auftrag', auftrag.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/auftrag', auftrag.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(auftrag)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

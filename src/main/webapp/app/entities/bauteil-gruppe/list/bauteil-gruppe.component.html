@@ -1,0 +1,84 @@
+<div>
+  <h2 id="page-heading" data-cy="BauteilGruppeHeading">
+    <span jhiTranslate="h8FirmenVerwaltungApp.bauteilGruppe.home.title">Bauteil Gruppes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="h8FirmenVerwaltungApp.bauteilGruppe.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-bauteil-gruppe"
+        [routerLink]="['/bauteil-gruppe/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="h8FirmenVerwaltungApp.bauteilGruppe.home.createLabel"> Create a new Bauteil Gruppe </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="bauteilGruppes?.length === 0">
+    <span jhiTranslate="h8FirmenVerwaltungApp.bauteilGruppe.home.notFound">No bauteilGruppes found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="bauteilGruppes && bauteilGruppes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.bauteilGruppe.name">Name</span></th>
+          <th scope="col"><span jhiTranslate="h8FirmenVerwaltungApp.bauteilGruppe.artikelTyp">Artikel Typ</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bauteilGruppe of bauteilGruppes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/bauteil-gruppe', bauteilGruppe.id, 'view']">{{ bauteilGruppe.id }}</a>
+          </td>
+          <td>{{ bauteilGruppe.name }}</td>
+          <td>
+            <div *ngIf="bauteilGruppe.artikelTyp">
+              <a [routerLink]="['/artikel-typ', bauteilGruppe.artikelTyp?.id, 'view']">{{ bauteilGruppe.artikelTyp?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/bauteil-gruppe', bauteilGruppe.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/bauteil-gruppe', bauteilGruppe.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(bauteilGruppe)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

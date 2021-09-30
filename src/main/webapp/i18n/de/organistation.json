@@ -1,0 +1,26 @@
+{
+  "h8FirmenVerwaltungApp": {
+    "organistation": {
+      "home": {
+        "title": "Organistations",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Organistation erstellen",
+        "createOrEditLabel": "Organistation erstellen oder bearbeiten",
+        "notFound": "Keine Organistations gefunden"
+      },
+      "created": "Organistation erstellt mit ID {{ param }}",
+      "updated": "Organistation aktualisiert mit ID {{ param }}",
+      "deleted": "Organistation gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Organistation {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Organistation"
+      },
+      "id": "ID",
+      "orgaId": "Orga Id",
+      "name": "Name",
+      "patner": "Patner"
+    }
+  }
+}

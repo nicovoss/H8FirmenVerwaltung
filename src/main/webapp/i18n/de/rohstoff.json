@@ -1,0 +1,26 @@
+{
+  "h8FirmenVerwaltungApp": {
+    "rohstoff": {
+      "home": {
+        "title": "Rohstoffs",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Rohstoff erstellen",
+        "createOrEditLabel": "Rohstoff erstellen oder bearbeiten",
+        "notFound": "Keine Rohstoffs gefunden"
+      },
+      "created": "Rohstoff erstellt mit ID {{ param }}",
+      "updated": "Rohstoff aktualisiert mit ID {{ param }}",
+      "deleted": "Rohstoff gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Rohstoff {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Rohstoff"
+      },
+      "id": "ID",
+      "name": "Name",
+      "preis": "Preis",
+      "bauteileZuRohstoffe": "Bauteile Zu Rohstoffe"
+    }
+  }
+}

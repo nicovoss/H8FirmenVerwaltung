@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
+    <!--
+        Added the constraints for entity BauteileZuRohstoffe.
+    -->
+    <changeSet id="20210930192906-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="bauteil_id"
+                                 baseTableName="bauteile_zu_rohstoffe"
+                                 constraintName="fk_bauteile_zu_rohstoffe__bauteil_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bauteil"/>
+
+        <addForeignKeyConstraint baseColumnNames="rohstoff_id"
+                                 baseTableName="bauteile_zu_rohstoffe"
+                                 constraintName="fk_bauteile_zu_rohstoffe__rohstoff_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="rohstoff"/>
+    </changeSet>
+</databaseChangeLog>

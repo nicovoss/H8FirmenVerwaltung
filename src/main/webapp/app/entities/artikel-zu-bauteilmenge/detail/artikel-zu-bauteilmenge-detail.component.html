@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="artikelZuBauteilmenge">
+      <h2 data-cy="artikelZuBauteilmengeDetailsHeading">
+        <span jhiTranslate="h8FirmenVerwaltungApp.artikelZuBauteilmenge.detail.title">Artikel Zu Bauteilmenge</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ artikelZuBauteilmenge.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.artikelZuBauteilmenge.menge">Menge</span></dt>
+        <dd>
+          <span>{{ artikelZuBauteilmenge.menge }}</span>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.artikelZuBauteilmenge.bauteil">Bauteil</span></dt>
+        <dd>
+          <div *ngIf="artikelZuBauteilmenge.bauteil">
+            <a [routerLink]="['/bauteil', artikelZuBauteilmenge.bauteil?.id, 'view']">{{ artikelZuBauteilmenge.bauteil?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.artikelZuBauteilmenge.artikel">Artikel</span></dt>
+        <dd>
+          <div *ngIf="artikelZuBauteilmenge.artikel">
+            <a [routerLink]="['/artikel', artikelZuBauteilmenge.artikel?.id, 'view']">{{ artikelZuBauteilmenge.artikel?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/artikel-zu-bauteilmenge', artikelZuBauteilmenge.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

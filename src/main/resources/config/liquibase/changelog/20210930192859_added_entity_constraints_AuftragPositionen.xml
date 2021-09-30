@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
+    <!--
+        Added the constraints for entity AuftragPositionen.
+    -->
+    <changeSet id="20210930192859-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="auftrag_id"
+                                 baseTableName="auftrag_positionen"
+                                 constraintName="fk_auftrag_positionen__auftrag_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="auftrag"/>
+
+        <addForeignKeyConstraint baseColumnNames="artikel_id"
+                                 baseTableName="auftrag_positionen"
+                                 constraintName="fk_auftrag_positionen__artikel_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="artikel"/>
+    </changeSet>
+</databaseChangeLog>

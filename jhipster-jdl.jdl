@@ -1,0 +1,179 @@
+
+
+entity RechnungKopf {
+}
+
+entity RechnungPositionen {
+	//positionsId Integer required,
+    artikelName String,
+    artikelBeschreibung String,
+    artikelPreis Integer,
+    menge Integer required
+}
+
+entity Artikel {
+    name String
+}
+
+entity ArtikelTyp {
+    //bauteilGruppenId Integer,
+    name String
+}
+
+entity Status {
+    statusBez String required
+} 
+
+relationship OneToMany {
+	RechnungKopf to RechnungPositionen{rechnungskopf}
+}
+
+relationship OneToMany {
+	Auftrag to RechnungKopf{auftrag},
+    Auftrag to AuftragPositionen{auftrag}
+}
+
+relationship OneToMany {
+	Bediener to RechnungKopf{bediner},
+    Patner to RechnungKopf{kunde}
+}
+
+
+
+relationship OneToMany {
+    Artikel to AuftragPositionen{artikel},
+    Artikel to RechnungPositionen{artikel}
+}
+
+relationship OneToMany {
+	ArtikelTyp to Artikel{artikelTyp}
+}
+
+relationship OneToMany {
+	Status to RechnungKopf{status},
+    Status to Auftrag{status}
+}
+
+relationship OneToMany {
+	Organistation to Patner{organistation}
+}
+
+relationship OneToMany {
+	BauteilGruppe to Bauteil{bauteilgruppe}
+}
+
+relationship OneToMany {
+	Patner to Auftrag{kunde}
+}
+
+relationship OneToMany {
+    Bediener to Auftrag{bediener}
+}
+
+entity Auftrag {
+    //patnerId Integer required,
+    erfasstAm Instant,
+    //erfasstVon Integer required,
+    faelligAm Instant,
+    bezahl Boolean,
+    bezahltAm Instant,
+    abgeschlossenAm Instant,
+    //statusId Integer required,
+    kommentar String,
+}
+
+
+
+entity AuftragPositionen {
+	//positionsId Integer required,
+    //artikelId Integer,
+    menge Integer,
+    //preis Integer,
+}
+
+entity Patner {
+	//patnerId Integer required,
+	vname String,
+    name String,
+    //orgaId Integer,
+    //patnerTypId Integer
+}
+
+entity Bediener {
+	//patnerId Integer required,
+	vname String,
+    name String,
+    //orgaId Integer,
+    //patnerTypId Integer
+}
+
+entity Organistation {
+	orgaId Integer required,
+    name String
+}
+
+entity Rohstoff {
+    name String,
+    preis Integer
+}
+
+entity Bauteil {
+    name String
+}
+
+
+entity BauteilGruppe {
+    name String
+}
+
+entity BauteileZuRohstoffe {
+	//id Integer required,
+    //bauteilId Integer,
+    //rohstoffId Integer,
+    menge Integer
+}
+
+relationship OneToMany {
+	Bauteil to BauteileZuRohstoffe{bauteil}
+}
+
+relationship OneToMany {
+	Rohstoff to BauteileZuRohstoffe{rohstoff}
+}
+
+entity ArtikelZuBauteilmenge {
+	//id Integer required,
+    //artikelId Integer,
+    //bauteilId Integer,
+    menge Integer
+}
+
+relationship OneToMany {
+	Bauteil to ArtikelZuBauteilmenge{bauteil}
+}
+
+relationship OneToMany {
+	Artikel to ArtikelZuBauteilmenge{artikel}
+}
+
+relationship OneToMany {
+	ArtikelTyp to BauteilGruppe{artikelTyp}
+}
+
+
+
+
+
+
+// Set pagination options
+//paginate JobHistory, Employee with infinite-scroll
+//paginate Job with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+//service all with serviceImpl except Employee, Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

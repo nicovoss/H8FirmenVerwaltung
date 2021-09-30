@@ -1,0 +1,26 @@
+{
+  "h8FirmenVerwaltungApp": {
+    "artikelTyp": {
+      "home": {
+        "title": "Artikel Typs",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Artikel Typ erstellen",
+        "createOrEditLabel": "Artikel Typ erstellen oder bearbeiten",
+        "notFound": "Keine Artikel Typs gefunden"
+      },
+      "created": "Artikel Typ erstellt mit ID {{ param }}",
+      "updated": "Artikel Typ aktualisiert mit ID {{ param }}",
+      "deleted": "Artikel Typ gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Artikel Typ {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Artikel Typ"
+      },
+      "id": "ID",
+      "name": "Name",
+      "artikel": "Artikel",
+      "bauteilGruppe": "Bauteil Gruppe"
+    }
+  }
+}

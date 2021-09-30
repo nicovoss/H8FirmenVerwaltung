@@ -1,0 +1,26 @@
+{
+  "h8FirmenVerwaltungApp": {
+    "bauteileZuRohstoffe": {
+      "home": {
+        "title": "Bauteile Zu Rohstoffes",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Bauteile Zu Rohstoffe erstellen",
+        "createOrEditLabel": "Bauteile Zu Rohstoffe erstellen oder bearbeiten",
+        "notFound": "Keine Bauteile Zu Rohstoffes gefunden"
+      },
+      "created": "Bauteile Zu Rohstoffe erstellt mit ID {{ param }}",
+      "updated": "Bauteile Zu Rohstoffe aktualisiert mit ID {{ param }}",
+      "deleted": "Bauteile Zu Rohstoffe gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Bauteile Zu Rohstoffe {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Bauteile Zu Rohstoffe"
+      },
+      "id": "ID",
+      "menge": "Menge",
+      "bauteil": "Bauteil",
+      "rohstoff": "Rohstoff"
+    }
+  }
+}

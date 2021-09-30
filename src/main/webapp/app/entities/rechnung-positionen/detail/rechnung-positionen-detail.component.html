@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="rechnungPositionen">
+      <h2 data-cy="rechnungPositionenDetailsHeading">
+        <span jhiTranslate="h8FirmenVerwaltungApp.rechnungPositionen.detail.title">Rechnung Positionen</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ rechnungPositionen.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.rechnungPositionen.artikelName">Artikel Name</span></dt>
+        <dd>
+          <span>{{ rechnungPositionen.artikelName }}</span>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.rechnungPositionen.artikelBeschreibung">Artikel Beschreibung</span></dt>
+        <dd>
+          <span>{{ rechnungPositionen.artikelBeschreibung }}</span>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.rechnungPositionen.artikelPreis">Artikel Preis</span></dt>
+        <dd>
+          <span>{{ rechnungPositionen.artikelPreis }}</span>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.rechnungPositionen.menge">Menge</span></dt>
+        <dd>
+          <span>{{ rechnungPositionen.menge }}</span>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.rechnungPositionen.rechnungskopf">Rechnungskopf</span></dt>
+        <dd>
+          <div *ngIf="rechnungPositionen.rechnungskopf">
+            <a [routerLink]="['/rechnung-kopf', rechnungPositionen.rechnungskopf?.id, 'view']">{{
+              rechnungPositionen.rechnungskopf?.id
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="h8FirmenVerwaltungApp.rechnungPositionen.artikel">Artikel</span></dt>
+        <dd>
+          <div *ngIf="rechnungPositionen.artikel">
+            <a [routerLink]="['/artikel', rechnungPositionen.artikel?.id, 'view']">{{ rechnungPositionen.artikel?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/rechnung-positionen', rechnungPositionen.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

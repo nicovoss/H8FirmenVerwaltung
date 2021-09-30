@@ -1,0 +1,28 @@
+{
+  "h8FirmenVerwaltungApp": {
+    "patner": {
+      "home": {
+        "title": "Patners",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Patner erstellen",
+        "createOrEditLabel": "Patner erstellen oder bearbeiten",
+        "notFound": "Keine Patners gefunden"
+      },
+      "created": "Patner erstellt mit ID {{ param }}",
+      "updated": "Patner aktualisiert mit ID {{ param }}",
+      "deleted": "Patner gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Patner {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Patner"
+      },
+      "id": "ID",
+      "vname": "Vname",
+      "name": "Name",
+      "rechnungKopf": "Rechnung Kopf",
+      "auftrag": "Auftrag",
+      "organistation": "Organistation"
+    }
+  }
+}
